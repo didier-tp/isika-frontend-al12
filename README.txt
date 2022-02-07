@@ -14,3 +14,7 @@ VOS TPS seront AILLEURS (ex: c:\tp) !!!!!
 futures actualisations:
 cd c:\references\isika-frontend-al12
 git pull
+
+=====================
+Complements (toutes promos - al - isika ):
+https://github.com/didier-tp/isika-al-howto
