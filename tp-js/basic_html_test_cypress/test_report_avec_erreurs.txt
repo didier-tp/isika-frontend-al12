@@ -1,0 +1,111 @@
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:    6.9.1                                                                              │
+  │ Browser:    Chrome 96                                                                          │
+  │ Specs:      1 found (myTest.spec.js)                                                           │
+  │ Searched:   cypress\integration\myTest.spec.js                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  myTest.spec.js                                                                  (1 of 1)
+
+
+  My HTML/JS Tests
+    1) good addition in calculatriceV3.html
+    2) good multiplication in calculatriceV3.html
+    3) Historique cache ou bien affiche
+
+
+  0 passing (17s)
+  3 failing
+
+  1) My HTML/JS Tests
+       good addition in calculatriceV3.html:
+
+      Timed out retrying after 4000ms
+      + expected - actual
+
+      -'12'
+      +'11'
+      
+      at Context.eval (http://localhost:3000/__cypress/tests?p=cypress\integration\myTest.spec.js:118:24)
+
+  2) My HTML/JS Tests
+       good multiplication in calculatriceV3.html:
+
+      Timed out retrying after 4000ms
+      + expected - actual
+
+      -'11'
+      +'12'
+      
+      at Context.eval (http://localhost:3000/__cypress/tests?p=cypress\integration\myTest.spec.js:129:24)
+
+  3) My HTML/JS Tests
+       Historique cache ou bien affiche:
+
+      Timed out retrying after 4000ms
+      + expected - actual
+
+      -'6'
+      +'5'
+      
+      at Context.eval (http://localhost:3000/__cypress/tests?p=cypress\integration\myTest.spec.js:137:24)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        3                                                                                │
+  │ Passing:      0                                                                                │
+  │ Failing:      3                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  3                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     17 seconds                                                                       │
+  │ Spec Ran:     myTest.spec.js                                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\tp\local-git-didier-tp-repositories\isika-al11-frontend\tp-js\basic_html_test     (1920x875)
+     _cypress\cypress\screenshots\myTest.spec.js\My HTMLJS Tests -- good addition in                
+     calculatriceV3.html (failed).png                                                               
+  -  C:\tp\local-git-didier-tp-repositories\isika-al11-frontend\tp-js\basic_html_test     (1920x875)
+     _cypress\cypress\screenshots\myTest.spec.js\My HTMLJS Tests -- good multiplicati               
+     on in calculatriceV3.html (failed).png                                                         
+  -  C:\tp\local-git-didier-tp-repositories\isika-al11-frontend\tp-js\basic_html_test     (1920x875)
+     _cypress\cypress\screenshots\myTest.spec.js\My HTMLJS Tests -- Historique cache                
+     ou bien affiche (failed).png                                                                   
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: C:\tp\local-git-didier-tp-repositories\isika-al11-frontend\    (2 seconds)
+                          tp-js\basic_html_test_cypress\cypress\videos\myTest.spec.js               
+                          .mp4                                                                      
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ×  myTest.spec.js                           00:17        3        -        3        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ×  1 of 1 failed (100%)                     00:17        3        -        3        -        -  
+
