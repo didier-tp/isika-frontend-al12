@@ -46,18 +46,25 @@ function addOrUpdateRowInTable(prodRef){
   var existingRow = document.getElementById("r_"+prodRef);
   if(existingRow){
 	  existingRow.cells[4].innerText = qte;
-	  existingRow.cells[5].innerText = qte * prod.prix;
+	  existingRow.cells[5].innerText = (qte * prod.prix).toFixed(2);
   }
   else{ //nouvelle ligne
 	  var eltTbody = document.getElementById("bodyTableau");
 	  var newRow = eltTbody.insertRow(-1) ;
 	  newRow.setAttribute("id","r_"+prodRef);
-	  newRow.insertCell(0).innerHTML = "<input type='checkbox'></input>";
+	  newRow.insertCell(0).innerHTML = "<input type='checkbox' id='id_cb'></input>";
 	  newRow.insertCell(1).innerHTML = prod.ref;
 	  newRow.insertCell(2).innerHTML = prod.label;
 	  newRow.insertCell(3).innerHTML = prod.prix;
 	  newRow.insertCell(4).innerHTML = qte;
-	  newRow.insertCell(5).innerHTML = prod.prix * qte;
+	  newRow.insertCell(5).innerHTML = (prod.prix * qte).toFixed(2);
+	  
+	  newRow.addEventListener("change",(event)=>{
+		  console.log("event.type=" + event.type);
+		  console.log("event.target.id=" + event.target.id);
+		  let refTr = event.target.parentElement.parentElement;
+		  console.log("refTr.id=" + refTr.id);
+	  });
   }
 }
 

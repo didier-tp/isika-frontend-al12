@@ -11,3 +11,9 @@ function calculerOp(op,a,b){
 	}
 	return res;
 }	
+
+function racineCarree(x){
+	//x = Number(x);
+	return Math.sqrt(x);
+	//return 0;
+}
