@@ -1,0 +1,36 @@
+//NB: il faut préalablement lancer lite-server dans le répertoire
+//comportant index.html pour démarrer lite-server dont l'URL
+//est http://localhost:3000 par defaut
+
+describe('commande Tests', () => {
+  it('bon ajout sur commande', () => {
+    
+	//partir de index.html
+	cy.visit("http://localhost:3000/index.html")
+	
+	//cliquer sur le lien comportant 'commande'
+	cy.contains('commande').click()
+	cy.wait(50)
+	// Should be on a new URL which includes '/commande'
+    cy.url().should('include', '/commande')
+	
+	// Get an input, type data into it 
+	//and verify that the value has been updated
+    cy.get('#qte')
+	  .clear()
+      .type('3')
+      .should('have.value', '3')
+	  
+	//....
+	  
+	//declencher click sur bouton addition
+	cy.get('#btnAdd')
+      .click()
+	
+	//vérifier que la zone d'id spanRes comporte le texte '11'
+	cy.get('#r_p1')
+	   .should('be.visible')
+  })
+  
+  
+})

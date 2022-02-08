@@ -5,10 +5,11 @@
   (Run Starting)
 
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ Cypress:    6.9.1                                                                              │
-  │ Browser:    Chrome 96                                                                          │
-  │ Specs:      1 found (myTest.spec.js)                                                           │
-  │ Searched:   cypress\integration\myTest.spec.js                                                 │
+  │ Cypress:        9.4.1                                                                          │
+  │ Browser:        Electron 94 (headless)                                                         │
+  │ Node Version:   v16.13.2 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          1 found (myTest.spec.js)                                                       │
+  │ Searched:       cypress\integration\myTest.spec.js                                             │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 
@@ -18,9 +19,9 @@
 
 
   My HTML/JS Tests
-    √ good addition in calculatriceV3.html (911ms)
-    √ good multiplication in calculatriceV3.html (466ms)
-    √ Historique cache ou bien affiche (604ms)
+    √ good addition in calculatriceV3.html (768ms)
+    √ good multiplication in calculatriceV3.html (421ms)
+    √ Historique cache ou bien affiche (590ms)
 
 
   3 passing (3s)
@@ -44,7 +45,7 @@
   (Video)
 
   -  Started processing:  Compressing to 32 CRF                                                     
-  -  Finished processing: C:\tp\local-git-didier-tp-repositories\isika-al11-frontend\    (0 seconds)
+  -  Finished processing: C:\tp\local-git-didier-tp-repositories\isika-frontend-al12\    (0 seconds)
                           tp-js\basic_html_test_cypress\cypress\videos\myTest.spec.js               
                           .mp4                                                                      
 
