@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose');  // npm install -s mongoose
 
-var mongoDbUrl = 'mongodb://127.0.0.1:27017/test'; //by default
+var mongoDbUrl = 'mongodb://127.0.0.1:27017/devise_db'; //by default
 
 var deviseSchema;//mongoose Shcema (structure of mongo document)
 var PersistentDeviseModel; //mongoose Model (constructor of persistent PersistentDeviseModel)
@@ -23,7 +23,7 @@ var initMongooseWithSchemaAndModel = function(callbackWithPersistentDeviseModel)
                                    transform: function (doc, ret) {   delete ret._id  }
                                  });
       //console.log("mongoose deviseSchema : " + JSON.stringify(deviseSchema) );
-      //"Devise" model name is "Devise" collection name in mongoDB test database
+      //"Devise" model name is "devises" collection name in mongoDB test database
       PersistentDeviseModel = mongoose.model('Devise', deviseSchema);
       
       //console.log("mongoose PersistentDeviseModel : " + PersistentDeviseModel );
