@@ -5,7 +5,7 @@ var request = require("request"); //ou bien axios (avec Promise)
 var myGenericMongoClient = require('./my_generic_mongo_client');
 
 //initialiser url mongoDB selon variable d'environnement MONGO_DB_URL et avec || valeur par defaut
-var myMongoDbUrl = process.env.MONGO_DB_URL || "mongodb://127.0.0.1:27017/test"
+var myMongoDbUrl = process.env.MONGO_DB_URL || "mongodb://127.0.0.1:27017/devise_db"
 console.log("myMongoDbUrl="+myMongoDbUrl)
 myGenericMongoClient.setMongoDbUrl(myMongoDbUrl);
 
