@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');  // npm install -s mongoose
 
-var mongoDbUrl = 'mongodb://127.0.0.1:27017/devise_db'; //by default
+var mongoDbUrl = 'mongodb://127.0.0.1:27017'; //by default
 
 var deviseSchema;//mongoose Shcema (structure of mongo document)
 var PersistentDeviseModel; //mongoose Model (constructor of persistent PersistentDeviseModel)
 
 var initMongooseWithSchemaAndModel = function(callbackWithPersistentDeviseModel) {
-    mongoose.connect(mongoDbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
+    mongoose.connect(mongoDbUrl, {useNewUrlParser: true, useUnifiedTopology: true , dbName : 'devise_db'});
     const db = mongoose.connection;
     db.on('error' , function() { console.log("mongoDb connection error = " + " for dbUrl=" + mongoDbUrl )});
     db.once('open', function() {
