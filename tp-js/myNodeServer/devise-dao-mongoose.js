@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');  // npm install -s mongoose
 
-var mongoDbUrl = 'mongodb://127.0.0.1:27017'; //by default
+var mongoDbUrl = process.env.MONGO_DB_URL || 'mongodb://127.0.0.1:27017'; //by default
 
 var deviseSchema;//mongoose Shcema (structure of mongo document)
 var PersistentDeviseModel; //mongoose Model (constructor of persistent PersistentDeviseModel)
