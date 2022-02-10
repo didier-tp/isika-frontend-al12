@@ -14,22 +14,15 @@ describe('commande Tests', () => {
 	// Should be on a new URL which includes '/commande'
     cy.url().should('include', '/commande')
 	
-	
 	cy.get('#selProd').select('stylo').should('have.value', 'p2')
 	// Get an input, type data into it 
 	//and verify that the value has been updated
-    cy.get('#qte')
-	  .clear()
-      .type('3')
+    cy.get('#qte').clear().type('3')
       .should('have.value', '3')
 	  
-	
-	  
 	//declencher click sur bouton addition
-	cy.get('#btnAdd')
-      .click()
+	cy.get('#btnAdd').click()
 	
-	//vérifier que la zone d'id spanRes comporte le texte '11'
 	cy.get('#bodyTableau td:nth-child(2)')
 	   .should('have.text','p2')
 	   
