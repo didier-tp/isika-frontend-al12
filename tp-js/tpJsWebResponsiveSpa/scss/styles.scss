@@ -2,25 +2,17 @@
 media-min or respond-below or media-breakpoint-down
 , media-max or respond-above ,  media-between or respond-between */
 @import "common.css";
+@import "_mixins.scss";
 
-$couleurPref : red;
+$couleurPref : rgb(0, 23, 128);
 
-@mixin with-border($color,$epaisseur){
-  border: $epaisseur solid $color ;
+h2, h3 {
+  @include texte_decore($couleurPref);
+}
+h2:hover, h3:hover {
+  @include texte_decore(red);
 }
 
-h2 {
-   color : $couleurPref;
-   &:hover{
-     color: darken($couleurPref,15%)
-   }
-}
-
-h3 {
-  @extend h2; 
-  text-decoration: underline;
-  @include with-border(red,2px);
-} 
 
 /*
 @media screen and (max-width: 575px) {
@@ -48,7 +40,6 @@ h3 {
   }
 }
 */
-
 .enEvidence {
   font-weight: bold;
   color: $couleurPref !important;
@@ -198,24 +189,19 @@ img {
 }
 
 @keyframes secouer-anim {
-  0% {
-    transform: rotate(10deg);
-  }
-  25% {
-    transform: rotate(-10deg);
-  }
-  50% {
-    transform: rotate(10deg);
-  }
-  75% {
-    transform: rotate(-10deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+  0% { transform: rotate(10deg);  }
+  10% { transform: rotate(-10deg);  }
+  20% { transform: rotate(10deg);  }
+  30% { transform: rotate(-10deg);  }
+  40% { transform: rotate(10deg);  }
+  50% { transform: rotate(-10deg);  }
+  60% { transform: rotate(10deg);  }
+  70% { transform: rotate(-10deg);  }
+  80% { transform: rotate(10deg);  }
+  90% { transform: rotate(-10deg);  }
+  100% { transform: rotate(0deg);  }
 }
-
-.secouer:hover{
+.secouer:hover {
   animation: secouer-anim 3s;
 }
 
@@ -260,6 +246,7 @@ img {
   height: 200px;
 }
 
+/*# sourceMappingURL=styles.css.map */
 /*# sourceMappingURL=styles.css.map */
 
 /*# sourceMappingURL=styles.css.map */
