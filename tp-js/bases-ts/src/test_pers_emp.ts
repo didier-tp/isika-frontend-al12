@@ -1,6 +1,8 @@
 import { Employe } from "./employes";
 import { IPerson, Personne } from "./personnes";
 
+
+
 let p1 : Personne;
 p1 = new Personne();
 if( p1 instanceof Employe){

@@ -13,6 +13,7 @@ devise_dao_mongoose.initMongooseWithSchemaAndModel(
 apiRouter.route('/devise-api/public/devise/:code')
 .get( function(req , res  , next ) {
 	var codeDevise = req.params.code;
+	/*
 	PersistentDeviseModel.findById( codeDevise ,
 									    function(err,devise){
 											if(devise==null)
@@ -20,7 +21,10 @@ apiRouter.route('/devise-api/public/devise/:code')
 											else
 										       res.send(devise);
 									   });
-	
+	*/
+	devise_dao_mongoose.getDeviseByCode(codeDevise)
+	.then((devise)=> { res.send(devise);} )
+	.catch((error)=> { res.status(404).send(error); } );
 });
 
 //exemple URL: http://localhost:8282/devise-api/public/devise (returning all devises)

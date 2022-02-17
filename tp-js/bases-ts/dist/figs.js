@@ -139,30 +139,30 @@ var __values = (this && this.__values) || function(o) {
     ConsoleSvgVisitor.prototype._svgStyle = function (f) {
         var sStyle = "";
         if (f.lineColor) {
-            sStyle += "stroke:" + f.lineColor + ";";
+            sStyle += "stroke:".concat(f.lineColor, ";");
         }
         if (f.lineWidth) {
-            sStyle += "stroke-width:" + f.lineWidth + ";";
+            sStyle += "stroke-width:".concat(f.lineWidth, ";");
         }
         if (f.fillColor) {
-            sStyle += "fill:" + f.fillColor;
+            sStyle += "fill:".concat(f.fillColor);
         }
         else {
             sStyle += "fill:none";
         }
-        return sStyle ? "style='" + sStyle + "'" : "";
+        return sStyle ? "style='".concat(sStyle, "'") : "";
     };
     ConsoleSvgVisitor.prototype.doActionForCircle = function (c) {
         //<circle cx='140' cy='200' r='50' style='fill:red' />
-        console.log("<circle cx='" + c.xC + "' cy='" + c.yC + "' r='" + c.r + "' " + this._svgStyle(c) + " />");
+        console.log("<circle cx='".concat(c.xC, "' cy='").concat(c.yC, "' r='").concat(c.r, "' ").concat(this._svgStyle(c), " />"));
     };
     ConsoleSvgVisitor.prototype.doActionForLine = function (l) {
         //<line x1='150' y1='50' x2='250' y2='230'  style='fill:blue;stroke: mediumblue;' />
-        console.log("<line x1='" + l.x1 + "' y1='" + l.y1 + "' x2='" + l.x2 + "' y2='" + l.y2 + "'  " + this._svgStyle(l) + " />");
+        console.log("<line x1='".concat(l.x1, "' y1='").concat(l.y1, "' x2='").concat(l.x2, "' y2='").concat(l.y2, "'  ").concat(this._svgStyle(l), " />"));
     };
     ConsoleSvgVisitor.prototype.doActionForRectangle = function (r) {
         //<rect x='50' y='50' width='80' height='80' style='fill:green' />
-        console.log("<rect x='" + r.x1 + "' y='" + r.y1 + "' width='" + r.width + "' height='" + r.height + "' " + this._svgStyle(r) + " />");
+        console.log("<rect x='".concat(r.x1, "' y='").concat(r.y1, "' width='").concat(r.width, "' height='").concat(r.height, "' ").concat(this._svgStyle(r), " />"));
     };
     return ConsoleSvgVisitor;
 }());

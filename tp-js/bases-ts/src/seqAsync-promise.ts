@@ -56,11 +56,12 @@ export class MyAsyncSequence{
         MyAsyncSequence.getAccountByNumAfterDelay(accountNumber,delay)
         .then( (account)=>{  compte = account;
                              this.afficherCompteRecupere(compte);
-                             // console.log("account:" + JSON.stringify(account));
+                             //console.log("account:" + JSON.stringify(account));
                              return MyAsyncSequence.getUserByIdAfterDelay(account.ownerId,delay);},
                              (err)=>{console.log("aff err account:" + err);})
         .then( (user)=> { console.log("user (owner of account):" + JSON.stringify(user));  })
         .catch((err)=>{console.log("aff commun:" + err);});
+        console.log("enchainement enregistré - en attente des résultats différés");
 
     }
 

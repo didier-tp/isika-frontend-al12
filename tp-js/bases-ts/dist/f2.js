@@ -35,7 +35,7 @@ try {
     for (var _b = __values(jours.entries()), _c = _b.next(); !_c.done; _c = _b.next()) {
         var _d = __read(_c.value, 2), i = _d[0], jour = _d[1];
         var j = jour.toUpperCase();
-        console.log(">> " + ("jour " + i + " : " + j));
+        console.log(">> " + "jour ".concat(i, " : ").concat(j));
     }
 }
 catch (e_1_1) { e_1 = { error: e_1_1 }; }

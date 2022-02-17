@@ -48,5 +48,19 @@ function init_devise_db(){
   });
 }
 
+//valeur en retour Promise<Devise>
+function getDeviseByCode(codeDevise){
+  return new Promise ((resolve,reject)=> {
+    PersistentDeviseModel.findById( codeDevise ,
+      function(err,devise){
+      if(devise==null)
+           reject({ err : 'not found'});
+      else
+           resolve(devise);
+     });
+  });
+}
+
+module.exports.getDeviseByCode=getDeviseByCode;
 module.exports.initMongooseWithSchemaAndModel=initMongooseWithSchemaAndModel;
 module.exports.init_devise_db = init_devise_db;
