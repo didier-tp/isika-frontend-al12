@@ -23,8 +23,12 @@ si coeff alpha proche de 1 très opaque.
   text-align: center;
 }
 
+.overImage1  h2 {
+  color: white;
+}
+
 .overImage2 {
-  background-color: #000000;
+
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/pont.jpg");
   background-position: center;
   background-size: cover;
@@ -33,6 +37,11 @@ si coeff alpha proche de 1 très opaque.
   text-align: center;
 }
 
+.overImage2  h2 {
+  color: white;
+}
+
+
 /*
 HSL signifie Hue, Saturation, Luminosity, 
 c’est à dire Teinte, Saturation, Luminosité
@@ -40,38 +49,39 @@ https://la-cascade.io/utiliser-hsl-pour-vos-couleurs/
 */
 @keyframes wheelHueColor {
   from, to {
-    color: #c32283;
+    color: hsl(0,100%,50%);
   }
   10% {
-    color: #bd2828;
+    color: hsl(30,100%,50%);
   }
   20% {
-    color: #cf8517;
+    color: hsl(60,100%,50%);
   }
   30% {
-    color: #819c16;
+    color: hsl(90,100%,50%);;
   }
   40% {
-    color: #36931f;
+    color: hsl(130,100%,50%);
   }
   50% {
-    color: #169c4c;
+    color: hsl(180,100%,50%);
   }
   60% {
-    color: #169c9c;
+    color: hsl(240,100%,50%);
   }
   70% {
-    color: #2e65b8;
+    color: hsl(280,100%,50%);
   }
   80% {
-    color: #4e2dd2;
+    color: hsl(320,100%,50%);
   }
   90% {
-    color: #8b29a3;
+    color: hsl(360,100%,50%);
   }
 }
+
 .animTextColor {
-  color: #c32283;
+  color: hsl(0,100%,50%);
   animation: wheelHueColor 60s infinite;
 }
 
