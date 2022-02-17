@@ -34,14 +34,29 @@ apiRouter.route('/devise-api/public/devise-convert')
 	let codeDeviseSource = req.query.source;
 	let codeDeviseCible = req.query.cible;
 	let changeDeviseSource ;
+	/*
 	devise_dao_mongoose.getDeviseByCode(codeDeviseSource)
 	.then((deviseSource)=> { changeDeviseSource = deviseSource.change;  
 		return devise_dao_mongoose.getDeviseByCode(codeDeviseCible) ; } )
 	.then((deviseCible)=>{
-		res.send ({ montant : montant , source : codeDeviseSource , cible : codeDeviseCible ,
-		            montantConverti : montant * deviseCible.change / changeDeviseSource });
+		res.send ({ montant : montant , 
+			        source : codeDeviseSource , 
+					cible : codeDeviseCible ,
+		            montantConverti : montant * deviseCible.change / 
+					changeDeviseSource });
 	 })
 	.catch((error)=> { res.status(404).send(error); } );
+	*/
+	Promise.all( [ devise_dao_mongoose.getDeviseByCode(codeDeviseSource) ,
+		           devise_dao_mongoose.getDeviseByCode(codeDeviseCible) ])
+	.then( ([deviseSource , deviseCible] )=> {
+		res.send ({ montant : montant , 
+			source : codeDeviseSource , 
+			cible : codeDeviseCible ,
+			montantConverti : montant * deviseCible.change / 
+			                 deviseSource.change });
+	 })
+	.catch((error)=> { res.status(404).send(error); });
 });
 
 //exemple URL: http://localhost:8282/devise-api/public/devise (returning all devises)
