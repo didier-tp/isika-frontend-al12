@@ -60,6 +60,18 @@ var InteractiveComputer = /** @class */ (function () {
             });
         });
     };
+    /*
+    static async ask_(question : string)  {
+        stdin.once('data', function(data : Buffer) {
+            let dataAsString = data.toString().trim();
+            if(dataAsString=="fin")
+               throw  "end/reject";
+            else
+               return dataAsString;
+        });
+    }
+    //ne fonctionne pas bien .
+    */
     InteractiveComputer.prototype.ask_and_compute_x_plus_y = function () {
         return __awaiter(this, void 0, void 0, function () {
             var valX, valY, res, e_1;

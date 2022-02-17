@@ -12,6 +12,7 @@ export class InteractiveComputer{
         this.x=0; this.y=0; this.z=0;
     }
 
+    
     static ask_(question : string) : Promise<string>{
         return new Promise ((resolve,reject)=> {
             stdin.resume();
@@ -25,6 +26,19 @@ export class InteractiveComputer{
             });
         });
     }
+
+    /*
+    static async ask_(question : string)  {
+        stdin.once('data', function(data : Buffer) {
+            let dataAsString = data.toString().trim();
+            if(dataAsString=="fin")
+               throw  "end/reject";
+            else
+               return dataAsString;
+        });
+    }
+    //ne fonctionne pas bien .
+    */
 
    async ask_and_compute_x_plus_y() : Promise<number>{
         try {

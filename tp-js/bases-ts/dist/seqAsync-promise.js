@@ -57,14 +57,15 @@ var MyAsyncSequence = /** @class */ (function () {
         });
     };
     MyAsyncSequence.retreive_account_and_owner = function (accountNumber) {
+        var _this = this;
         var delay = 3000; //ms
         var compte = null;
         //avec enchainement de "Promise":
         MyAsyncSequence.getAccountByNumAfterDelay(accountNumber, delay)
             .then(function (account) {
             compte = account;
-            //this.afficherCompteRecupere(compte);
-            console.log("account:" + JSON.stringify(account));
+            _this.afficherCompteRecupere(compte);
+            //console.log("account:" + JSON.stringify(account));
             return MyAsyncSequence.getUserByIdAfterDelay(account.ownerId, delay);
         }, function (err) { console.log("aff err account:" + err); })
             .then(function (user) { console.log("user (owner of account):" + JSON.stringify(user)); })

@@ -11,7 +11,7 @@ devise_dao_mongoose.initMongooseWithSchemaAndModel(
 
 //exemple URL: http://localhost:8282/devise-api/public/devise/EUR
 apiRouter.route('/devise-api/public/devise/:code')
-.get( function(req , res  , next ) {
+.get( async function(req , res  , next ) {
 	var codeDevise = req.params.code;
 	/*
 	PersistentDeviseModel.findById( codeDevise ,
@@ -22,9 +22,18 @@ apiRouter.route('/devise-api/public/devise/:code')
 										       res.send(devise);
 									   });
 	*/
+	/*
 	devise_dao_mongoose.getDeviseByCode(codeDevise)
 	.then((devise)=> { res.send(devise);} )
 	.catch((error)=> { res.status(404).send(error); } );
+	*/
+	//Variante 3 (avec await dans une fonction préfixée par async):
+	try{
+      let devise = await devise_dao_mongoose.getDeviseByCode(codeDevise);
+	  res.send(devise);
+	}catch(ex){
+		res.status(404).send(ex); 
+	}
 });
 
 //exemple URL: http://localhost:8282/devise-api/public/devise-convert?montant=50&source=EUR&cible=USD
