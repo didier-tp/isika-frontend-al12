@@ -27,6 +27,23 @@ apiRouter.route('/devise-api/public/devise/:code')
 	.catch((error)=> { res.status(404).send(error); } );
 });
 
+//exemple URL: http://localhost:8282/devise-api/public/devise-convert?montant=50&source=EUR&cible=USD
+apiRouter.route('/devise-api/public/devise-convert')
+.get( function(req , res  , next ) {
+	let montant = Number(req.query.montant);
+	let codeDeviseSource = req.query.source;
+	let codeDeviseCible = req.query.cible;
+	let changeDeviseSource ;
+	devise_dao_mongoose.getDeviseByCode(codeDeviseSource)
+	.then((deviseSource)=> { changeDeviseSource = deviseSource.change;  
+		return devise_dao_mongoose.getDeviseByCode(codeDeviseCible) ; } )
+	.then((deviseCible)=>{
+		res.send ({ montant : montant , source : codeDeviseSource , cible : codeDeviseCible ,
+		            montantConverti : montant * deviseCible.change / changeDeviseSource });
+	 })
+	.catch((error)=> { res.status(404).send(error); } );
+});
+
 //exemple URL: http://localhost:8282/devise-api/public/devise (returning all devises)
 //             http://localhost:8282/devise-api/public/devise?changeMini=1.05
 apiRouter.route('/devise-api/public/devise')
