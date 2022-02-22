@@ -1,0 +1,9 @@
+<p>calculatrice works!</p>
+<label>a:</label><input type="number" [(ngModel)]="a" /> <br/>
+<label>b:</label><input type="number" [value]="b" (input)="onRecupB($event)" /> <br/>
+<button (click)="calculer('+')">addition</button> &nbsp;
+<button (click)="calculer('-')">soustraction</button> &nbsp;
+<input type="button"  value="*" (click)="calculer('*')" />
+ &nbsp; 
+<button (click)="calculer('/')">division</button> <br/>
+res = <span [style.color]="res>=0?'blue':'red'">{{res}}</span>
