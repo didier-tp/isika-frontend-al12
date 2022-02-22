@@ -21,7 +21,7 @@ export class ZzComponent implements OnInit {
   onSelectCategorie(categorieChoisie:string){
     this.categorie=categorieChoisie;
     console.log("categorieChoisie="+this.categorie)
-    this.listeProduits=this.mapCategorieProduits.get(this.categorie);
+    this.listeProduits=this.mapCategorieProduits.get(this.categorie) ;
     console.log("listeProduits="+JSON.stringify(this.listeProduits))
   }
 

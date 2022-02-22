@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PreferencesService } from '../common/service/preferences.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  constructor(public preferencesService : PreferencesService) { 
+    //injection de dépendance
+  }
  
 
   //equivalent de @PostConstruct de java
