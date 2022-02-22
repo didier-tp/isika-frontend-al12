@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { XyComponent } from './basic/xy/xy.component';
 import { ZzComponent } from './basic/zz/zz.component';
+import { BsUtilModule } from 'src/bs-util/bs-util.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ imports: [
   AppRoutingModule,
   FormsModule,
   BrowserAnimationsModule,
-  TabsModule.forRoot()
+  TabsModule.forRoot(),
+  BsUtilModule
 ],
   providers: [],
   bootstrap: [AppComponent]

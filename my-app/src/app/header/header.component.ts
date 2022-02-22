@@ -13,12 +13,13 @@ export class HeaderComponent implements OnInit {
 
   constructor(public preferencesService : PreferencesService) { 
     //injection de dépendance
+    console.log("dans constructor, titre="+this.titre);
   }
  
 
   //equivalent de @PostConstruct de java
   ngOnInit(): void {
-  
+    console.log("dans ngOnInit, titre="+this.titre);
   }
   
 
