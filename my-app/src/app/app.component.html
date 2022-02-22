@@ -1,6 +1,11 @@
 <div class="container-fluid">
+   <!--
     <app-header ></app-header>
-   <p> welcome to {{title}} </p>
+    <app-header titre="T1" ></app-header>
+    <app-header [titre]="'T1'"></app-header>
+    -->
+    <app-header [titre]="title"></app-header>
+   <!-- <p> welcome to {{title}} </p> -->
  
      <!-- router-outlet sera automatiquement remplacé par 
           le composant associé à la route courante -->
