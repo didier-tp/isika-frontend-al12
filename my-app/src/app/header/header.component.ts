@@ -1,6 +1,7 @@
 import { Component,  Input,  OnInit } from '@angular/core';
 import { MenuDefinition } from 'src/bs-util/data/MenuDefinition';
 import { PreferencesService } from '../common/service/preferences.service';
+import { ProduitService } from '../common/service/produit.service';
 
 @Component({
   selector: 'app-header',
@@ -20,15 +21,29 @@ export class HeaderComponent implements OnInit {
       children : [
         { label : "login" , path : "/ngr-login" } ,
         { divider : true },
-        { label : "admin" , path : "..." }
+        { label : "produit" , path : "/ngr-produit" },
+        { label : "conversion" , path : "/ngr-conversion" },
+        { label : "admin-devise" , path : "/ngr-admin-devise" } 
       ]
     }
     ];
 
-  constructor(public preferencesService : PreferencesService) { 
-    //injection de dépendance
-    console.log("dans constructor, titre="+this.titre);
+  nbProdPrixInferieurSeuilMaxi : number = 0;
+
+  actualiserNbProd(prixMaxi : number){
+    this.produitService.rechercherNombreProduitSimu$(prixMaxi)
+    .subscribe((nbProd) => { this.nbProdPrixInferieurSeuilMaxi = nbProd;});
   }
+
+  //injection de dépendance par constructeur
+  constructor(public preferencesService : PreferencesService ,
+    private produitService : ProduitService){
+      console.log("dans constructeur : titre="+this.titre);
+      this.produitService.seuilMaxiObservable.subscribe
+      (
+      (nouveauSeuil)=>{ this.actualiserNbProd(nouveauSeuil);}
+      );
+}
  
 
   //equivalent de @PostConstruct de java

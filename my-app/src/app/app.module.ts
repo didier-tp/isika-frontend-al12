@@ -17,6 +17,14 @@ import { AppComponent } from './app.component';
 import { XyComponent } from './basic/xy/xy.component';
 import { ZzComponent } from './basic/zz/zz.component';
 import { BsUtilModule } from 'src/bs-util/bs-util.module';
+import { ProduitComponent } from './produit/produit.component';
+import { ConversionComponent } from './conversion/conversion.component';
+import { AdminDeviseComponent } from './admin-devise/admin-devise.component';
+import { MynumberPipe } from './common/pipe/mynumber.pipe';
+import { SeuilComponent } from './basic/seuil/seuil.component';
+import { ListProdComponent } from './basic/list-prod/list-prod.component';
+import { MyAuthInterceptor } from './common/interceptor/my-auth.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +38,13 @@ import { BsUtilModule } from 'src/bs-util/bs-util.module';
   ZzComponent,
   LoginComponent,
   WelcomeComponent,
-  RegletteComponent
+  RegletteComponent,
+  ProduitComponent,
+  ConversionComponent,
+  AdminDeviseComponent,
+  SeuilComponent,
+  ListProdComponent,
+  MynumberPipe
 ],
 imports: [
   BrowserModule,
@@ -38,9 +52,16 @@ imports: [
   FormsModule,
   BrowserAnimationsModule,
   TabsModule.forRoot(),
-  BsUtilModule
+  BsUtilModule,
+  HttpClientModule
 ],
-  providers: [],
+providers: [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: MyAuthInterceptor,
+    multi: true
+    }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

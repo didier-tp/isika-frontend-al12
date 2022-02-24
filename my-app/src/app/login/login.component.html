@@ -33,6 +33,6 @@
     </div>
   </div>
 </form>
-message: <span >{{message}} </span> 
+message: <span [style.color]="authenticated?'green':'red'">{{message | uppercase }} </span> 
 <hr/>
 NB: bonnes valeurs (pour TP): admin1 , pwdadmin1 , admin

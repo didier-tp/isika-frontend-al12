@@ -1,0 +1,29 @@
+<h3> gestion des produits</h3>
+<div class="row">
+    <div class="col-sm-6">
+        <p>liste des produits existants:</p>
+        <table border=1>
+        <thead>
+            <tr><th>ref</th><th>label</th><th>prix</th></tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of produits"
+                (click)="onSelectionnerProduit(p)"
+                [class.selected]="p===produit">
+                <td>{{p.ref}}</td><td>{{p.label}}</td><td>{{p.prix}}</td>
+            </tr>
+        </tbody> 
+        </table>
+</div>
+    <div class="col-sm-6">
+        <p>Produit sélectionné:</p>
+        <form>
+            <label>ref:</label><input name="ref" [(ngModel)]="produit.ref"/> <br/>
+            <label>label:</label><input name="label" [(ngModel)]="produit.label"/> <br/>
+            <label>prix:</label><input name="prix" [(ngModel)]="produit.prix"/> <br/>
+            <button (click)="onAjouterNew()">Ajouter</button> &nbsp;<button (click)="onSupprimerSelection()">Supprimer</button> ...
+        </form>
+    </div>
+</div>
+
+<!-- + New/Add , Update , Delete -->
