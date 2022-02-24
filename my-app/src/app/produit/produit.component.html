@@ -23,8 +23,10 @@
             <label>prix:</label><input name="prix" [(ngModel)]="produitTemp.prix"/> <br/>
             <button (click)="onNew()">Nouveau</button> &nbsp;
             <button (click)="onAjouter()">Ajouter</button> &nbsp;
-            <button (click)="onSupprimerSelection()">Supprimer</button> &nbsp;
-            <button (click)="onModifierSelection()">Modifier</button> &nbsp;
+            <button (click)="onSupprimerSelection()"
+                 [disabled]="produit==null" >Supprimer</button> &nbsp;
+            <button (click)="onModifierSelection()"
+                    [disabled]="produit==null" >Modifier</button> &nbsp;
         </form>
     </div>
 </div>

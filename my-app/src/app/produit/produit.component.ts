@@ -26,7 +26,7 @@ export class ProduitComponent implements OnInit {
             this.produits.splice(<number><unknown>i,1); break;
           }
       }
-    this.produit = new Produit();
+    this.produit = null;
  }
 
  onAjouter(){
