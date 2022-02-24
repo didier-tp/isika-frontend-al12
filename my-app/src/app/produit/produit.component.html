@@ -18,10 +18,13 @@
     <div class="col-sm-6">
         <p>Produit sélectionné:</p>
         <form>
-            <label>ref:</label><input name="ref" [(ngModel)]="produit.ref"/> <br/>
-            <label>label:</label><input name="label" [(ngModel)]="produit.label"/> <br/>
-            <label>prix:</label><input name="prix" [(ngModel)]="produit.prix"/> <br/>
-            <button (click)="onAjouterNew()">Ajouter</button> &nbsp;<button (click)="onSupprimerSelection()">Supprimer</button> ...
+            <label>ref:</label><input name="ref" [(ngModel)]="produitTemp.ref"/> <br/>
+            <label>label:</label><input name="label" [(ngModel)]="produitTemp.label"/> <br/>
+            <label>prix:</label><input name="prix" [(ngModel)]="produitTemp.prix"/> <br/>
+            <button (click)="onNew()">Nouveau</button> &nbsp;
+            <button (click)="onAjouter()">Ajouter</button> &nbsp;
+            <button (click)="onSupprimerSelection()">Supprimer</button> &nbsp;
+            <button (click)="onModifierSelection()">Modifier</button> &nbsp;
         </form>
     </div>
 </div>

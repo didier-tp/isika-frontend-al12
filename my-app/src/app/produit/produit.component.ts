@@ -8,27 +8,47 @@ import { Produit } from '../common/data/produit';
 })
 export class ProduitComponent implements OnInit {
 
-  produit : Produit = new Produit(); //produit sélectionné (à modifier ou à supprimer ou ....)
-  
+  produit : Produit | null = null; //produit sélectionné (à modifier ou à supprimer ou ....)
+  produitTemp : Produit = new Produit(); //produit temporaire (copie selection ou nouveau)
+
   onSelectionnerProduit(p:Produit){
      this.produit = p; //variante simpliste (idéalement)
+     this.produitTemp =  this.clonerProduit(p);//clonage / copie
+  }
+
+  clonerProduit(p:Produit):Produit{
+    return JSON.parse(JSON.stringify(p));
   }
 
   onSupprimerSelection(){
       for(let i in this.produits){
-          if(this.produit.ref == this.produits[i].ref){
+          if(this.produitTemp.ref == this.produits[i].ref){
             this.produits.splice(<number><unknown>i,1); break;
           }
       }
     this.produit = new Produit();
  }
 
- onAjouterNew(){
-   if(this.produit.ref != "?" || this.produits.length == 0){
-        this.produit = new Produit();
-        this.produits.push(this.produit);
+ onAjouter(){
+   if(this.produitTemp.ref != "?" ){
+        let p = this.clonerProduit(this.produitTemp);
+        this.produits.push(p);
+        this.onNew();//ou ...
    }
  }
+
+ onModifierSelection(){
+     if(this.produit){
+          this.produit.label =  this.produitTemp.label;
+          this.produit.prix =  this.produitTemp.prix;
+          this.produit.ref =  this.produitTemp.ref;
+     }
+ }
+
+ onNew(){
+   this.produit = null;
+   this.produitTemp  = new Produit();
+}
   
   produits : Produit[] = [
     new Produit('p1' , "Cahier" , 2.34) ,
